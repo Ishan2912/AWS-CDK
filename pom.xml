@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.myorg</groupId>
-    <artifactId>e_commerce_ecs_cdk</artifactId>
+    <artifactId>ECS_CDK</artifactId>
     <version>0.1</version>
 
     <properties>
@@ -30,7 +30,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>com.myorg.ECommerceEcsCdkApp</mainClass>
+                    <mainClass>com.united.EcsCdkApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -11,6 +11,7 @@ It is a [Maven](https://maven.apache.org/) based project, so you can open this p
  * `mvn package`     compile and run tests
  * `cdk ls`          list all stacks in the app
  * `cdk synth`       emits the synthesized CloudFormation template
+ * `cdk bootstrap --profile default --region ap-south-1` initializes the environment to support CDK deployments
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
