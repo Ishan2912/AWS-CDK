@@ -115,7 +115,7 @@ public class ProductsServiceStack extends Stack {
                         .targetGroupName("ProductsServiceNLB")
                         .targets(Collections.singletonList(fargateService.loadBalancerTarget(
                                 LoadBalancerTargetOptions.builder()
-                                        .containerName("ProductsService")
+                                        .containerName("products-service")
                                         .containerPort(8080)
                                         .protocol(Protocol.TCP)
                                         .build())))
