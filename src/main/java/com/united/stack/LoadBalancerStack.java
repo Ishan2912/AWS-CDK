@@ -1,6 +1,6 @@
 package com.united.stack;
 
-import com.united.stack.props.LoadBalancerStackProps;
+import com.united.stack.props.VPCStackProps;
 import lombok.Getter;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
@@ -21,7 +21,7 @@ public class LoadBalancerStack extends Stack {
     private final NetworkLoadBalancer networkLoadBalancer;
     private final ApplicationLoadBalancer applicationLoadBalancer;
 
-    public LoadBalancerStack(final Construct scope, final String id, final StackProps props, LoadBalancerStackProps lbProps) {
+    public LoadBalancerStack(final Construct scope, final String id, final StackProps props, VPCStackProps lbProps) {
         super(scope, id, props);
 
         this.networkLoadBalancer = new NetworkLoadBalancer(this, "NetworkLoadBalancer", NetworkLoadBalancerProps.builder()

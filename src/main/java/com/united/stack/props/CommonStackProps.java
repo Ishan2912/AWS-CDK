@@ -8,7 +8,7 @@ import software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationLoadBal
 import software.amazon.awscdk.services.elasticloadbalancingv2.NetworkLoadBalancer;
 
 @Builder
-public record ProductsServiceStackProps(
+public record CommonStackProps(
         Vpc vpc,
         Cluster cluster,
         NetworkLoadBalancer networkLoadBalancer,

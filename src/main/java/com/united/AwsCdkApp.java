@@ -1,11 +1,13 @@
 package com.united;
 
-import com.united.stack.props.LoadBalancerStackProps;
+import com.united.stack.APIGatewayStack;
+import com.united.stack.props.APIGatewayStackProps;
+import com.united.stack.props.VPCStackProps;
 import com.united.stack.ClusterStack;
 import com.united.stack.ECRStack;
 import com.united.stack.LoadBalancerStack;
 import com.united.stack.ProductsServiceStack;
-import com.united.stack.props.ProductsServiceStackProps;
+import com.united.stack.props.CommonStackProps;
 import com.united.stack.VPCStack;
 import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
@@ -44,7 +46,7 @@ public class AwsCdkApp {
                 StackProps.builder()
                 .env(environment)
                 .tags(infraTags)
-                .build(), new LoadBalancerStackProps(vpcStack.getVpc()));
+                .build(), new VPCStackProps(vpcStack.getVpc()));
         clusterStack.addDependency(vpcStack);
 
         LoadBalancerStack loadBalancerStack = new LoadBalancerStack(app, "LoadBalancer",
@@ -52,7 +54,7 @@ public class AwsCdkApp {
                         .env(environment)
                         .tags(infraTags)
                         .build(),
-                        new LoadBalancerStackProps(vpcStack.getVpc()));
+                        new VPCStackProps(vpcStack.getVpc()));
         loadBalancerStack.addDependency(vpcStack);
 
 
@@ -63,7 +65,7 @@ public class AwsCdkApp {
                 .env(environment)
                 .tags(productsServiceTags)
                 .build(),
-                new ProductsServiceStackProps(
+                new CommonStackProps(
                         vpcStack.getVpc(),
                         clusterStack.getCluster(),
                         loadBalancerStack.getNetworkLoadBalancer(),
@@ -73,6 +75,16 @@ public class AwsCdkApp {
         productsServiceStack.addDependency(clusterStack);
         productsServiceStack.addDependency(loadBalancerStack);
         productsServiceStack.addDependency(ecrStack);
+
+        APIGatewayStack apiGatewayStack = new APIGatewayStack(app, "API",
+                StackProps.builder()
+                        .env(environment)
+                        .tags(infraTags)
+                        .build(),
+                        new APIGatewayStackProps(
+                                loadBalancerStack.getVpcLink(),
+                                loadBalancerStack.getNetworkLoadBalancer()));
+        apiGatewayStack.addDependency(loadBalancerStack);
 
         app.synth();
     }

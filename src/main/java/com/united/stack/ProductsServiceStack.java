@@ -1,6 +1,6 @@
 package com.united.stack;
 
-import com.united.stack.props.ProductsServiceStackProps;
+import com.united.stack.props.CommonStackProps;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.RemovalPolicy;
 import software.amazon.awscdk.Stack;
@@ -30,7 +30,7 @@ public class ProductsServiceStack extends Stack {
 
     public ProductsServiceStack(final Construct scope, final String id,
                                 final StackProps props,
-                                ProductsServiceStackProps productsServiceStackProps) {
+                                CommonStackProps productsServiceStackProps) {
         super(scope, id, props);
 
         FargateTaskDefinition fargateTaskDefinition = new FargateTaskDefinition(this, "TaskDefinition",

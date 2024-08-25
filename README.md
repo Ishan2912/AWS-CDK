@@ -2,9 +2,14 @@
 # AWS ECS-Cluster
 ![Logo](images/ECS-Cluster.png)
 
+## Application Load Balancer
 ![Logo](images/ApplicationLoadBalancer.png)
 
+## Target Groups
 ![Logo](images/TargetGroups.png)
+
+## API Gateway
+![Logo](images/API-Gateway.png)
 
 # Key Advantages of the Combined Architecture
 ## Security:
