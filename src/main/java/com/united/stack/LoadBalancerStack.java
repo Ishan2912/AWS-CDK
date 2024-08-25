@@ -21,13 +21,13 @@ public class LoadBalancerStack extends Stack {
     private final NetworkLoadBalancer networkLoadBalancer;
     private final ApplicationLoadBalancer applicationLoadBalancer;
 
-    public LoadBalancerStack(final Construct scope, final String id, final StackProps props, LoadBalancerStackProps cfProps) {
+    public LoadBalancerStack(final Construct scope, final String id, final StackProps props, LoadBalancerStackProps lbProps) {
         super(scope, id, props);
 
         this.networkLoadBalancer = new NetworkLoadBalancer(this, "NetworkLoadBalancer", NetworkLoadBalancerProps.builder()
                 .loadBalancerName("ECommerce-NLB")
                 .internetFacing(false)
-                .vpc(cfProps.vpc())
+                .vpc(lbProps.vpc())
                 .build());
 
         this.vpcLink = new VpcLink(this, "VpcLink", VpcLinkProps.builder()
@@ -38,7 +38,7 @@ public class LoadBalancerStack extends Stack {
         this.applicationLoadBalancer = new ApplicationLoadBalancer(this, "ApplicationLoadBalancer", ApplicationLoadBalancerProps.builder()
                 .loadBalancerName("ECommerce-ALB")
                 .internetFacing(false)
-                .vpc(cfProps.vpc())
+                .vpc(lbProps.vpc())
                 .build());
     }
 }
