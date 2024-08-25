@@ -1,6 +1,6 @@
 package com.united.stack;
 
-import com.united.stack.props.CloudFormationStackProps;
+import com.united.stack.props.LoadBalancerStackProps;
 import lombok.Getter;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
@@ -13,7 +13,7 @@ public class ClusterStack extends Stack {
 
     private final Cluster cluster;
 
-    public ClusterStack(final Construct scope, final String id, final StackProps props, CloudFormationStackProps clusterProps) {
+    public ClusterStack(final Construct scope, final String id, final StackProps props, LoadBalancerStackProps clusterProps) {
         super(scope, id, props);
 
         this.cluster = new Cluster(this,id + "Cluster", ClusterProps.builder()

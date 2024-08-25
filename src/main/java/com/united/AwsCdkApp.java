@@ -1,6 +1,6 @@
 package com.united;
 
-import com.united.stack.props.CloudFormationStackProps;
+import com.united.stack.props.LoadBalancerStackProps;
 import com.united.stack.ClusterStack;
 import com.united.stack.ECRStack;
 import com.united.stack.LoadBalancerStack;
@@ -44,7 +44,7 @@ public class AwsCdkApp {
                 StackProps.builder()
                 .env(environment)
                 .tags(infraTags)
-                .build(), new CloudFormationStackProps(vpcStack.getVpc()));
+                .build(), new LoadBalancerStackProps(vpcStack.getVpc()));
         clusterStack.addDependency(vpcStack);
 
         LoadBalancerStack loadBalancerStack = new LoadBalancerStack(app, "LoadBalancer",
@@ -52,7 +52,7 @@ public class AwsCdkApp {
                         .env(environment)
                         .tags(infraTags)
                         .build(),
-                        new CloudFormationStackProps(vpcStack.getVpc()));
+                        new LoadBalancerStackProps(vpcStack.getVpc()));
         loadBalancerStack.addDependency(vpcStack);
 
 
