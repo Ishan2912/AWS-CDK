@@ -1,4 +1,4 @@
-package com.united;
+package com.united.stack;
 
 import software.amazon.awscdk.RemovalPolicy;
 import software.amazon.awscdk.Stack;

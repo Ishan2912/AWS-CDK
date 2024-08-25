@@ -6,9 +6,35 @@
 
 ![Logo](images/TargetGroups.png)
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+# Key Advantages of the Combined Architecture
+## Security:
 
-It is a [Maven](https://maven.apache.org/) based project, so you can open this project with any Maven compatible Java IDE to build and run tests.
+### VPC Link:
+Ensures secure communication between API Gateway and internal resources without exposing them to the public internet.
+NLB: Allows for secure, low-latency connections with the option for static IP addresses and TLS termination.
+## Performance:
+
+### NLB: 
+Handles high volumes of traffic with minimal latency, ideal for latency-sensitive applications.
+### ALB: 
+Provides advanced routing for HTTP/HTTPS requests, optimizing web application performance.
+## Scalability:
+
+Both NLB and ALB automatically scale to handle varying levels of traffic, ensuring that the architecture can grow with the application’s needs.
+## Flexibility:
+### ALB: 
+Supports complex routing rules, enabling a microservices architecture where different parts of an application can be independently managed and scaled.
+### NLB: 
+Handles raw TCP/UDP traffic, making it suitable for a wide range of applications beyond just web traffic.
+## Cost-Efficiency:
+
+By using the appropriate load balancer for the right type of traffic (NLB for TCP/UDP, ALB for HTTP/HTTPS), you optimize resource usage and costs.
+## Summary
+By combining VPC Link, NLB, and ALB, you can build a robust, secure, and scalable architecture in AWS. This setup allows for efficient handling of different types of traffic, provides advanced routing capabilities, and maintains security through private communication within the VPC. This architecture is particularly advantageous for microservices, hybrid cloud environments, and applications requiring high performance and low latency.
+<hr>
+#### The `cdk.json` file tells the CDK Toolkit how to execute your app.
+
+#### It is a [Maven](https://maven.apache.org/) based project, so you can open this project with any Maven compatible Java IDE to build and run tests.
 
 ## Useful commands
 
@@ -23,7 +49,7 @@ It is a [Maven](https://maven.apache.org/) based project, so you can open this p
  * `cdk deploy <stackname...>` deploys space separated stacks
  * `cdk destroy <stackname...>` destroys space separated stacks
 
-
+<hr>
 
 # 12 Factor Methodology
 The 12-Factor App is a methodology for building software-as-a-service applications that are scalable, maintainable, and portable. While it originally applied to web apps, the principles are highly relevant to microservices architectures. Here's a summary of each of the 12 factors:

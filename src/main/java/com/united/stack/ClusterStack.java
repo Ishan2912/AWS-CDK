@@ -1,4 +1,4 @@
-package com.united;
+package com.united.stack;
 
 import lombok.Getter;
 import software.amazon.awscdk.Stack;
