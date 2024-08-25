@@ -8,9 +8,9 @@ import software.amazon.awscdk.services.ecr.RepositoryProps;
 import software.amazon.awscdk.services.ecr.TagMutability;
 import software.constructs.Construct;
 
-public class EcrStack extends Stack {
+public class ECRStack extends Stack {
     private final Repository productsServiceRepository;
-    public EcrStack(final Construct scope, final String id, final StackProps props) {
+    public ECRStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
         this.productsServiceRepository = new Repository(this, "ProductsService",
