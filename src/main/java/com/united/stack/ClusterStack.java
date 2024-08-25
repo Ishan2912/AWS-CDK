@@ -1,5 +1,6 @@
 package com.united.stack;
 
+import com.united.stack.props.CloudFormationStackProps;
 import lombok.Getter;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;

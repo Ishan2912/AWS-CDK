@@ -1,5 +1,6 @@
 package com.united.stack;
 
+import com.united.stack.props.ProductsServiceStackProps;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.RemovalPolicy;
 import software.amazon.awscdk.Stack;
@@ -15,7 +16,6 @@ import software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationProtoco
 import software.amazon.awscdk.services.elasticloadbalancingv2.NetworkListener;
 import software.amazon.awscdk.services.elasticloadbalancingv2.BaseNetworkListenerProps;
 import software.amazon.awscdk.services.elasticloadbalancingv2.HealthCheck;
-import software.amazon.awscdk.services.elasticloadbalancingv2.NetworkListenerProps;
 import software.amazon.awscdk.services.logs.LogGroup;
 import software.amazon.awscdk.services.logs.LogGroupProps;
 import software.amazon.awscdk.services.logs.RetentionDays;

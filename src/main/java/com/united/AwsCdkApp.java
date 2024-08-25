@@ -1,11 +1,11 @@
 package com.united;
 
-import com.united.stack.CloudFormationStackProps;
+import com.united.stack.props.CloudFormationStackProps;
 import com.united.stack.ClusterStack;
 import com.united.stack.ECRStack;
 import com.united.stack.LoadBalancerStack;
 import com.united.stack.ProductsServiceStack;
-import com.united.stack.ProductsServiceStackProps;
+import com.united.stack.props.ProductsServiceStackProps;
 import com.united.stack.VPCStack;
 import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
