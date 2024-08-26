@@ -76,7 +76,7 @@ public class AwsCdkApp {
         productsServiceStack.addDependency(loadBalancerStack);
         productsServiceStack.addDependency(ecrStack);
 
-        APIGatewayStack apiGatewayStack = new APIGatewayStack(app, "API",
+        APIGatewayStack apiGatewayStack = new APIGatewayStack(app, "API-Gateway",
                 StackProps.builder()
                         .env(environment)
                         .tags(infraTags)
